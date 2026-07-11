@@ -1,0 +1,3 @@
+display_name: Pixel Rebuild
+short_description: Pixel data rebuild and zero-diff QA
+default_prompt: Use this skill to export a visual pixel data layer, rebuild the image from the exported data, and verify zero-diff RGB metrics.
