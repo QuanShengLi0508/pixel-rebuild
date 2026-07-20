@@ -10,7 +10,7 @@ Reconstruct a raster reference as editable Python drawing code. Treat the image 
 ## Hard requirements
 
 - Produce a standalone Python renderer. Never embed, paste, trace at runtime, or composite pixels from the reference.
-- Do not export reference pixels to CSV or hide source fragments in assets. A zero-diff pixel copy is not a reconstruction.
+- Do not export reference pixels to CSV or hide source fragments in runtime assets. A zero-diff pixel copy is not a reconstruction. A clearly labeled reference/output pair may exist only as README documentation; renderers must never read it.
 - Match the reference width, height, mode, and DPI unless the user requests otherwise.
 - Make output deterministic with fixed coordinates, colors, font files, seeds, drawing order, and metadata.
 - Inspect the native source both visually and programmatically before drawing.
