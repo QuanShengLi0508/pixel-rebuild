@@ -4,6 +4,12 @@ __pycache__/
 *.egg-info/
 .venv/
 
+# Reconstruction diagnostics
+comparison/
+diagnostics/
+example_reconstruction.png
+metrics.json
+
 # IDE
 .vscode/
 .idea/

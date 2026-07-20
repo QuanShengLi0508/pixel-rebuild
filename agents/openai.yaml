@@ -1,3 +1,4 @@
-display_name: Pixel Rebuild
-short_description: Pixel data rebuild and zero-diff QA
-default_prompt: Use this skill to export a visual pixel data layer, rebuild the image from the exported data, and verify zero-diff RGB metrics.
+interface:
+  display_name: "Python 1:1 Pixel Rebuild"
+  short_description: "Measure, redraw, compare, and verify raster figures in Python"
+  default_prompt: "Use $pixel-rebuild to recreate this reference figure 1:1 as standalone Python drawing code and verify the rendered output."
