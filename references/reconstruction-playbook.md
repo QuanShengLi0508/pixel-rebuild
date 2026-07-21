@@ -156,6 +156,21 @@ Large white backgrounds inflate exact-pixel percentages. Compare plot, legend, a
 
 Keep a single source of truth for coordinates. Small edits should be attributable to a named shape or text item rather than scattered pixel patches.
 
+### Audit optional strokes by ablation
+
+Leader lines and short annotation strokes are easy to invent in crowded plots. Store them as a list of paths so each can be tested independently.
+
+For path `i`, render a baseline and a version with only `i` removed. With channel-wise absolute-error sum `E`:
+
+```text
+delta_remove(i) = E(without path i) - E(with all paths)
+```
+
+- `delta_remove > 0`: the path is helping at its current location.
+- `delta_remove < 0`: deleting the path improves the result; it is missing from the source or has the wrong geometry.
+
+Do not use this number alone. Inspect the local crop and compare the proposed path against source grayscale pixels dilated by one or two pixels. A correct line can have low raw support where a marker, label, or rule drawn later hides it. The complete worked example is in [solvent-affinity-case-study.md](solvent-affinity-case-study.md).
+
 ## 9. Verify delivery
 
 Run the renderer twice from clean invocations and compare SHA-256 hashes. Confirm:

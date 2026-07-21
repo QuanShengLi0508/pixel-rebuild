@@ -50,9 +50,19 @@ Draw every supersampled primitive onto one large canvas and downsample once. If 
 
 Some reference rules have a specific coverage pattern across four native rows that no convenient high-resolution width reproduces. After the general supersampled render, draw measured native rows or columns explicitly. Use this narrowly; it should not become pixel painting.
 
+### Supersampling can destroy deliberately flat cores
+
+Small legend swatches and marker interiors may contain exact rectangular or circular cores in the source. A supersampled primitive followed by Lanczos can leave only edge mixtures and no pixels in the intended RGB value. Draw the general antialiased shape first, then restore only the measured native-resolution core. In the solvent case, the three legend rule samples required exact `6 x 7` blocks after downsampling.
+
 ### Line caps and joins alter endpoints
 
 Pillow and Matplotlib defaults may use different caps and joins. A curve with the right centerline can still differ at every segment corner. Use rounded endpoint circles or an appropriate path backend when required.
+
+### Plausible leader lines can be completely invented
+
+Dense scientific plots tempt the eye to connect every isolated label to a nearby marker. In a real solvent-affinity reconstruction, several plausible connectors were absent from the source: short strokes under `TFEO`, `BTFE`, `FEMC`, two hollow green markers, and a red point cluster all had to be deleted.
+
+Treat every optional leader as a hypothesis. Render the figure with one path removed and compare the affected ROI. If removal lowers the absolute error, the current path is absent or geometrically wrong. For a second check, isolate grayscale source pixels, dilate them by one or two pixels, and measure how much of the proposed stroke lies inside that evidence corridor. Remember that markers drawn later can legitimately hide the final portion of a correct line.
 
 ### Smooth shapes need more than an ellipse guess
 
@@ -117,6 +127,14 @@ Glyph ascenders, descenders, and side bearings produce optical offsets. Use `tex
 ### Unicode scientific notation can change the font
 
 Superscript and subscript glyphs may come from a fallback font. Compose base, exponent, and chemical subscripts as separate text runs when exact spacing matters.
+
+### Similar-looking characters are not interchangeable
+
+`~`, `≈`, hyphen, minus, Greek letters, and mathematical symbols can appear similar at preview size but have different widths and antialiasing. The solvent example initially rendered `~150 solvents`; the source actually used `≈150 solvents`. Correcting the character improved both the crop metric and the visual alignment.
+
+### A shared subpixel phase can matter more than integer coordinates
+
+When most labels prefer the same fractional baseline shift, fix the group phase first and only then tune per-label offsets. Moving dozens of labels independently before discovering a common `1/3 px` vertical phase wastes work and makes the coordinate table harder to audit.
 
 ### Subpixel text fringes may be impossible to clone exactly
 
