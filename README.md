@@ -221,7 +221,7 @@ python scripts/audit_line_evidence.py reference.png candidate-paths.json \
   --visualization line-evidence.png
 ```
 
-脚本会为每条路径输出原始支持像素数、膘胀后支持像素数、支持率和 `supported/review` 分类。它是快速筛查器，不是自动删线器：文字、标记或虚线可能造成假支持，后绘制的点也可能遮挡真实引线。
+脚本会为每条路径输出原始支持像素数、膨胀后支持像素数、支持率和 `supported/review` 分类。它是快速筛查器，不是自动删线器：文字、标记或虚线可能造成假支持，后绘制的点也可能遮挡真实引线。
 
 ### 4. 运行完整绘图示例
 
