@@ -9,6 +9,7 @@ comparison/
 diagnostics/
 example_reconstruction.png
 metrics.json
+!assets/cases/**/metrics.json
 
 # IDE
 .vscode/

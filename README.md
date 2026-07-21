@@ -4,7 +4,7 @@
 
 这个项目关注的不是“把原图重新保存一遍”，而是从参考图中测量画布、坐标轴、曲线、填充区域、标记、文字和图例，再用 Pillow 或 Matplotlib 从零绘制。
 
-## 重建效果
+## 案例 1：断轴与对数坐标综合图
 
 | 重建前：参考图 | 重建后：Python 独立绘制 |
 |---|---|
@@ -42,6 +42,54 @@ python scripts/rebuild_readme_example.py --output rebuilt.png
 | 重复生成 | 两次输出 SHA-256 完全相同 |
 
 完整一致像素比例容易受到大面积白色背景影响，因此工具还会计算指定 ROI 和平面颜色 IoU。字体栅格器、字形文件和抗锯齿实现不同，也可能在文字边缘产生局部差异。
+
+## 案例 2：溶剂亲和力散点图
+
+这是本仓库的案例 2：一张 `1080 x 588` 的密集科学图，包含实心/空心标记、三组虚线阈值、大量标签与短引线、数学下标、ClearType 风格子像素文字和混合图例。
+
+| 原图 | Python 独立重建 |
+|---|---|
+| ![Solvent-affinity reference](assets/cases/solvent-affinity/reference.png) | ![Solvent-affinity reconstruction](assets/cases/solvent-affinity/reconstruction.png) |
+
+### 逐像素差异热力图
+
+![Solvent-affinity pixel heatmap](assets/cases/solvent-affinity/heatmap.png)
+
+### 引线源像素证据审计
+
+![Solvent-affinity leader evidence audit](assets/cases/solvent-affinity/line-evidence.png)
+
+绿色路径达到默认证据支持阈值；红色路径需要结合局部裁剪、遮挡关系和逐条消融继续审查，不会被脚本自动删除。本案例 36 条候选引线中，35 条达到 `0.40` 支持率阈值，1 条标记为 `review`。
+
+| 指标 | 结果 |
+|---|---:|
+| MAE | `4.643836` |
+| RMSE | `23.993312` |
+| 完全一致像素 | `90.048501%` |
+| 通道误差不超过 5 | `92.512125%` |
+| 不同像素数 | `63,196` |
+| 无参考图重复渲染 | 两次 SHA-256 完全相同 |
+
+这次实战建立了一套更严格的证据链：
+
+- 逐条删除引线并重新渲染，用消融试验判断线条是帮助还是造成误差
+- 分离原图灰阶像素并膨胀 `1-2 px`，计算候选引线的像素证据支持率
+- 用逐行扫描恢复 `1,4-DX` 等斜线的真实中心线，而不是凭缩略图猜测
+- 用 3 个水平子样本、5-tap 滤波和 gamma 近似 LCD 子像素文字
+- 先拟合标签组的共同 `1/3 px` 基线相位，再保留少量单标签水平偏移
+- 在 4 倍超采样之后恢复实测的标记平面色核心、坐标轴单像素核心和图例 `6 x 7` 矩形
+- 识别 `≈` 与 `~` 这类预览中很像、但字形宽度和抗锯齿完全不同的字符
+
+完整代码与证据：
+
+- [独立渲染脚本](scripts/cases/recreate_solvent_affinity.py)
+- [完整案例复盘、算法和踩坑记录](references/solvent-affinity-case-study.md)
+- [逐像素指标 JSON](assets/cases/solvent-affinity/metrics.json)
+- [50% 叠加图](assets/cases/solvent-affinity/overlay.png)
+- [4 倍增强绝对差异](assets/cases/solvent-affinity/difference_x4.png)
+- [非零差异二值图](assets/cases/solvent-affinity/error_mask.png)
+- [引线候选坐标](assets/cases/solvent-affinity/leaders.json)
+- [引线证据逐条报告](assets/cases/solvent-affinity/line-evidence.json)
 
 ## “1:1 重建”是什么意思
 
@@ -150,7 +198,32 @@ python scripts/compare_reconstruction.py reference.png recreated.png \
 
 比较工具遇到尺寸不一致时会直接失败，不会通过偷偷缩放图片来掩盖问题。
 
-### 3. 运行完整绘图示例
+### 3. 审计候选引线
+
+先把候选折线保存为 JSON：
+
+```json
+{
+  "paths": [
+    {"name": "label-a", "points": [[302, 61], [304, 67]]},
+    {"name": "label-b", "points": [[229, 122], [243, 140], [252, 140]]}
+  ]
+}
+```
+
+然后在原图上检测等通道灰阶像素证据：
+
+```bash
+python scripts/audit_line_evidence.py reference.png candidate-paths.json \
+  --radius 2 \
+  --support-threshold 0.40 \
+  --json line-evidence.json \
+  --visualization line-evidence.png
+```
+
+脚本会为每条路径输出原始支持像素数、膘胀后支持像素数、支持率和 `supported/review` 分类。它是快速筛查器，不是自动删线器：文字、标记或虚线可能造成假支持，后绘制的点也可能遮挡真实引线。
+
+### 4. 运行完整绘图示例
 
 ```bash
 python scripts/example_pillow_reconstruction.py --output example_reconstruction.png
@@ -169,6 +242,8 @@ python scripts/example_pillow_reconstruction.py --output example_reconstruction.
 
 此外，[README 效果图重建脚本](scripts/rebuild_readme_example.py) 是上方实际对比案例的完整实现，包含全部 25 行图例和针对目标图逐项测量后的坐标、颜色、字体与符号参数。
 
+[溶剂亲和力实战脚本](scripts/cases/recreate_solvent_affinity.py) 则演示了密集散点图的 LCD 子像素文字、逐条引线消融、灰阶证据支持率和原生分辨率核心修正。
+
 ## 实战经验
 
 重建最容易卡在“看起来差不多，但指标不再提升”的阶段。[实战踩坑清单](references/pitfalls.md) 记录了本项目实际遇到的问题，包括：
@@ -176,6 +251,8 @@ python scripts/example_pillow_reconstruction.py --output example_reconstruction.
 - 旧脚本或旧输出与当前参考图不对应
 - 预览缩放导致坐标测量错误
 - Pillow 矩形端点包含和半像素对齐
+- 密集散点图中看似合理、实际不存在的标注引线
+- 用逐条消融和灰阶证据廊道区分“线不存在”与“线画错了”
 - 重复缩放造成的模糊
 - 交叠区域的平面颜色与透明混合差异
 - 断轴的分段映射
@@ -186,6 +263,7 @@ python scripts/example_pillow_reconstruction.py --output example_reconstruction.
 - Skill 校验器与绘图运行时的依赖差异
 
 更完整的方法说明见 [重建手册](references/reconstruction-playbook.md)。
+溶剂亲和力图的完整迭代记录见 [案例 2 复盘](references/solvent-affinity-case-study.md)。
 
 ## 目录结构
 
@@ -197,15 +275,31 @@ pixel-rebuild/
 ├── agents/
 │   └── openai.yaml
 ├── assets/
-│   └── examples/
-│       ├── reference.png
-│       └── python-reconstruction.png
+│   ├── examples/
+│   │   ├── reference.png
+│   │   └── python-reconstruction.png
+│   └── cases/
+│       └── solvent-affinity/
+│           ├── difference_x4.png
+│           ├── error_mask.png
+│           ├── heatmap.png
+│           ├── leaders.json
+│           ├── line-evidence.json
+│           ├── line-evidence.png
+│           ├── metrics.json
+│           ├── overlay.png
+│           ├── reference.png
+│           └── reconstruction.png
 ├── references/
 │   ├── pitfalls.md
-│   └── reconstruction-playbook.md
+│   ├── reconstruction-playbook.md
+│   └── solvent-affinity-case-study.md
 └── scripts/
-    ├── inspect_reference.py
+    ├── cases/
+    │   └── recreate_solvent_affinity.py
+    ├── audit_line_evidence.py
     ├── compare_reconstruction.py
+    ├── inspect_reference.py
     ├── example_pillow_reconstruction.py
     └── rebuild_readme_example.py
 ```
