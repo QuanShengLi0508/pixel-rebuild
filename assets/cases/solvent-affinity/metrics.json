@@ -1,0 +1,256 @@
+{
+  "reference": {
+    "path": "assets/cases/solvent-affinity/reference.png",
+    "format": "PNG",
+    "size": [
+      1080,
+      588
+    ],
+    "mode": "RGB",
+    "dpi": null,
+    "icc_profile_bytes": 0,
+    "icc_profile_sha256": null,
+    "sha256": "d6fced7a3670b34023a0b632650907a2b8e716cd2b540bb31fb73c991ab27c0b"
+  },
+  "output": {
+    "path": "assets/cases/solvent-affinity/reconstruction.png",
+    "format": "PNG",
+    "size": [
+      1080,
+      588
+    ],
+    "mode": "RGB",
+    "dpi": null,
+    "icc_profile_bytes": 0,
+    "icc_profile_sha256": null,
+    "sha256": "98c993c9193dce051a8e077cf6c2e74b521416f7972560f42a3575e5630a992b"
+  },
+  "metadata_match": {
+    "format": true,
+    "size": true,
+    "mode": true,
+    "dpi": true,
+    "icc_profile": true
+  },
+  "global": {
+    "mae": 4.643836083816242,
+    "rmse": 23.99331236127775,
+    "p95_absolute_channel_error": 22.0,
+    "max_absolute_channel_error": 255,
+    "exact_pixel_fraction": 0.9004850088183421,
+    "within_5_fraction": 0.9251212522045855,
+    "within_10_fraction": 0.9294422398589065,
+    "within_20_fraction": 0.9375740110859159,
+    "different_pixel_count": 63196,
+    "different_bbox": [
+      50,
+      40,
+      1056,
+      583
+    ]
+  },
+  "regions": {
+    "plot": {
+      "box": [
+        110,
+        45,
+        900,
+        535
+      ],
+      "mae": 5.502123482304314,
+      "rmse": 25.86831771418981,
+      "p95_absolute_channel_error": 32.0,
+      "max_absolute_channel_error": 255,
+      "exact_pixel_fraction": 0.8756677861017825,
+      "within_5_fraction": 0.9103797468354431,
+      "within_10_fraction": 0.9157091190906742,
+      "within_20_fraction": 0.925701369155257,
+      "different_pixel_count": 48129,
+      "different_bbox": [
+        110,
+        50,
+        900,
+        534
+      ]
+    },
+    "upper-lines": {
+      "box": [
+        230,
+        90,
+        725,
+        220
+      ],
+      "mae": 6.533328153328154,
+      "rmse": 29.034069868986904,
+      "p95_absolute_channel_error": 41.0,
+      "max_absolute_channel_error": 255,
+      "exact_pixel_fraction": 0.8614607614607614,
+      "within_5_fraction": 0.8920901320901321,
+      "within_10_fraction": 0.8985236985236985,
+      "within_20_fraction": 0.9107226107226107,
+      "different_pixel_count": 8915,
+      "different_bbox": [
+        230,
+        90,
+        725,
+        220
+      ]
+    },
+    "middle-lines": {
+      "box": [
+        175,
+        225,
+        610,
+        360
+      ],
+      "mae": 12.840283808712927,
+      "rmse": 40.45674374058178,
+      "p95_absolute_channel_error": 90.0,
+      "max_absolute_channel_error": 255,
+      "exact_pixel_fraction": 0.7326862494678587,
+      "within_5_fraction": 0.7997786292039165,
+      "within_10_fraction": 0.8121243082162622,
+      "within_20_fraction": 0.8322860791826309,
+      "different_pixel_count": 15698,
+      "different_bbox": [
+        175,
+        225,
+        610,
+        360
+      ]
+    },
+    "lower-lines": {
+      "box": [
+        185,
+        315,
+        800,
+        430
+      ],
+      "mae": 4.962578060563215,
+      "rmse": 24.636395878562194,
+      "p95_absolute_channel_error": 27.0,
+      "max_absolute_channel_error": 255,
+      "exact_pixel_fraction": 0.8903358077059031,
+      "within_5_fraction": 0.9171155885471898,
+      "within_10_fraction": 0.9220501944149876,
+      "within_20_fraction": 0.9318062919759632,
+      "different_pixel_count": 7756,
+      "different_bbox": [
+        185,
+        315,
+        800,
+        430
+      ]
+    },
+    "legend": {
+      "box": [
+        910,
+        50,
+        1060,
+        540
+      ],
+      "mae": 4.821469387755102,
+      "rmse": 24.896608699109066,
+      "p95_absolute_channel_error": 21.0,
+      "max_absolute_channel_error": 255,
+      "exact_pixel_fraction": 0.9007210884353741,
+      "within_5_fraction": 0.9199047619047619,
+      "within_10_fraction": 0.9246666666666666,
+      "within_20_fraction": 0.9347210884353742,
+      "different_pixel_count": 7297,
+      "different_bbox": [
+        914,
+        59,
+        1056,
+        535
+      ]
+    }
+  },
+  "flat_color_iou": [
+    {
+      "rgb": [
+        0,
+        178,
+        56
+      ],
+      "reference_pixels": 1047,
+      "output_pixels": 983,
+      "intersection": 929,
+      "union": 1101,
+      "iou": 0.8437783832879201
+    },
+    {
+      "rgb": [
+        249,
+        0,
+        0
+      ],
+      "reference_pixels": 1963,
+      "output_pixels": 2137,
+      "intersection": 1860,
+      "union": 2240,
+      "iou": 0.8303571428571429
+    },
+    {
+      "rgb": [
+        81,
+        81,
+        81
+      ],
+      "reference_pixels": 874,
+      "output_pixels": 903,
+      "intersection": 805,
+      "union": 972,
+      "iou": 0.8281893004115226
+    },
+    {
+      "rgb": [
+        0,
+        128,
+        189
+      ],
+      "reference_pixels": 632,
+      "output_pixels": 662,
+      "intersection": 610,
+      "union": 684,
+      "iou": 0.8918128654970761
+    },
+    {
+      "rgb": [
+        92,
+        169,
+        217
+      ],
+      "reference_pixels": 833,
+      "output_pixels": 833,
+      "intersection": 768,
+      "union": 898,
+      "iou": 0.8552338530066815
+    },
+    {
+      "rgb": [
+        255,
+        162,
+        53
+      ],
+      "reference_pixels": 1720,
+      "output_pixels": 1574,
+      "intersection": 1466,
+      "union": 1828,
+      "iou": 0.8019693654266958
+    },
+    {
+      "rgb": [
+        163,
+        73,
+        168
+      ],
+      "reference_pixels": 550,
+      "output_pixels": 516,
+      "intersection": 512,
+      "union": 554,
+      "iou": 0.924187725631769
+    }
+  ],
+  "diagnostics": "assets/cases/solvent-affinity"
+}
