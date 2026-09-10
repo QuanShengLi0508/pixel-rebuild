@@ -91,6 +91,39 @@ python scripts/rebuild_readme_example.py --output rebuilt.png
 - [引线候选坐标](assets/cases/solvent-affinity/leaders.json)
 - [引线证据逐条报告](assets/cases/solvent-affinity/line-evidence.json)
 
+## 案例 3：BIB V-groove 可编辑三维结构图
+
+这是一个矢量优先的科研结构图案例：下方参考图决定器件层、V-groove、接触块和引线的空间关系，上方参考图只决定配色和透明层次。最终交付同时保留独立的 PPTX 矢量对象、SVG 和 PNG 预览；参考截图不会被嵌入 PPTX，也不会被渲染器读取。
+
+| 结构参考 | 风格参考 | 可编辑重绘 |
+|---|---|---|
+| ![BIB structure reference](assets/cases/bib-v-groove/reference.png) | ![BIB style reference](assets/cases/bib-v-groove/style-reference.png) | ![BIB reconstruction](assets/cases/bib-v-groove/reconstruction.png) |
+
+这次迭代把“看起来差不多但廉价感很重”的问题变成了可检查的几何契约：共享边端点、接触块厚度、虚线段长、箭头尖角、材料颜色和 layer order。审计器会在导出前发现白线、黑色结构轮廓、厚度漂移、虚线不均和引线压住目标等回归。
+
+- [BIB 案例复盘与漏洞清单](references/bib-v-groove-case-study.md)
+- [矢量场景审计器](scripts/audit_vector_scene.py)
+- [场景约束 manifest](assets/cases/bib-v-groove/scene_manifest.json)
+- [矢量审计结果](assets/cases/bib-v-groove/vector-audit.json)
+- [PPTX/SVG 重建脚本](scripts/cases/rebuild_bib_v_groove.py)
+- [可编辑 PowerPoint](assets/cases/bib-v-groove/BIB_structure_editable_v30.pptx)
+
+运行审计：
+
+```bash
+python scripts/audit_vector_scene.py \
+  assets/cases/bib-v-groove/scene_manifest.json \
+  --json assets/cases/bib-v-groove/vector-audit.json
+```
+
+生成可编辑版本需要可选的 `python-pptx`：
+
+```bash
+python -m pip install -r requirements-vector.txt
+python scripts/cases/rebuild_bib_v_groove.py \
+  --output-dir assets/cases/bib-v-groove/generated
+```
+
 ## “1:1 重建”是什么意思
 
 本项目把 1:1 作为以下目标：
@@ -261,9 +294,14 @@ python scripts/example_pillow_reconstruction.py --output example_reconstruction.
 - 字体路径、字形回退、上下标和跨平台抗锯齿
 - PNG DPI 的像素/米换算误差
 - Skill 校验器与绘图运行时的依赖差异
+- 三维结构图共享边的亚像素缝隙和导出后的白色 hairline
+- 同一材料不同面颜色漂移、默认黑色 outline 和误继承的阴影
+- 手工虚线端点重复、箭头头部过钝、接触块挤出厚度不一致
+- 标签/引线保护区缺失导致的对象遮挡和错误 layer order
 
 更完整的方法说明见 [重建手册](references/reconstruction-playbook.md)。
 溶剂亲和力图的完整迭代记录见 [案例 2 复盘](references/solvent-affinity-case-study.md)。
+BIB V-groove 图的结构审计和修复记录见 [案例 3 复盘](references/bib-v-groove-case-study.md)。
 
 ## 目录结构
 
@@ -272,6 +310,7 @@ pixel-rebuild/
 ├── SKILL.md
 ├── README.md
 ├── requirements.txt
+├── requirements-vector.txt
 ├── agents/
 │   └── openai.yaml
 ├── assets/
@@ -279,29 +318,40 @@ pixel-rebuild/
 │   │   ├── reference.png
 │   │   └── python-reconstruction.png
 │   └── cases/
-│       └── solvent-affinity/
-│           ├── difference_x4.png
-│           ├── error_mask.png
-│           ├── heatmap.png
-│           ├── leaders.json
-│           ├── line-evidence.json
-│           ├── line-evidence.png
-│           ├── metrics.json
-│           ├── overlay.png
+│       ├── solvent-affinity/
+│       │   ├── difference_x4.png
+│       │   ├── error_mask.png
+│       │   ├── heatmap.png
+│       │   ├── leaders.json
+│       │   ├── line-evidence.json
+│       │   ├── line-evidence.png
+│       │   ├── metrics.json
+│       │   ├── overlay.png
+│       │   ├── reference.png
+│       │   └── reconstruction.png
+│       └── bib-v-groove/
+│           ├── BIB_structure_editable_v30.pptx
+│           ├── reconstruction.png
+│           ├── reconstruction.svg
 │           ├── reference.png
-│           └── reconstruction.png
+│           ├── scene_manifest.json
+│           ├── style-reference.png
+│           └── vector-audit.json
 ├── references/
+│   ├── bib-v-groove-case-study.md
 │   ├── pitfalls.md
 │   ├── reconstruction-playbook.md
 │   └── solvent-affinity-case-study.md
 └── scripts/
-    ├── cases/
-    │   └── recreate_solvent_affinity.py
     ├── audit_line_evidence.py
+    ├── audit_vector_scene.py
     ├── compare_reconstruction.py
     ├── inspect_reference.py
     ├── example_pillow_reconstruction.py
-    └── rebuild_readme_example.py
+    ├── rebuild_readme_example.py
+    └── cases/
+        ├── recreate_solvent_affinity.py
+        └── rebuild_bib_v_groove.py
 ```
 
 ## 交付标准

@@ -10,6 +10,8 @@ diagnostics/
 example_reconstruction.png
 metrics.json
 !assets/cases/**/metrics.json
+assets/cases/**/generated/
+assets/cases/**/generated-*/
 
 # IDE
 .vscode/

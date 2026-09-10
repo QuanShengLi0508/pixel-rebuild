@@ -114,6 +114,55 @@ Triangles and pentagons can appear vertically displaced even with identical boun
 
 Do not hand-place each row while eyeballing. Measure the frame, all row centers, symbol anchor, and text anchor. Use the same marker renderer as the plot to avoid small inconsistencies.
 
+## Editable vector schematics
+
+### Shared edges must be authored once
+
+In an isometric device drawing, two adjacent faces that are estimated
+independently can differ by a fraction of a pixel. PowerPoint or SVG export
+then exposes a white hairline, a dark seam, or a one-pixel step. Reuse the same
+endpoint coordinates, or construct a continuous surface when a boundary is
+not physically meaningful. Record the endpoint error in a scene manifest and
+run `scripts/audit_vector_scene.py` before export.
+
+### Default outlines are not neutral
+
+Presentation and vector libraries may inherit a theme outline or shadow even
+when the source looks like flat color. Explicitly disable structural strokes
+and effects; add black lines only for electrical wires, terminals, or arrows
+that are supported by the reference. Check the exported object tree, not only
+the raster preview.
+
+### Thickness is a geometric parameter
+
+A top contact, V-groove wall, or layer side face can look wrong even when its
+top polygon is correct. Define the extrusion direction and thickness once,
+then derive all visible faces from it. Keep contact-pad thicknesses in a group
+so an accidental `+1 px` change is caught as a regression.
+
+### Stable overlap colors beat guessed alpha
+
+The pale region under a contact may look translucent in a screenshot, but it
+can be a stable rasterized overlap color. Measure it in a clean crop. Use
+alpha only for the local under-face when the reference supports it; keep the
+device layers as explicit flat fills so the BL/AL/passivation distinction is
+preserved.
+
+### Dashed contours need one spacing rule
+
+Hand-placed dash fragments accumulate endpoint and angle errors at corners.
+Split each polyline into equal intervals with one dash-length rule, and audit
+the variation of dash lengths and gaps. Remove an extra outer dash instead of
+compensating with a tiny, inconsistent fragment.
+
+### Labels and leaders need protected regions
+
+Moving a leader inward to match a label can make it cover a contact block or
+the `Al:V+` text. Store the protected rectangle for the target object, stop
+the shaft before the arrowhead, and keep labels as independent editable text
+boxes. The full BIB example and its manifest are in
+[`bib-v-groove-case-study.md`](bib-v-groove-case-study.md).
+
 ## Typography
 
 ### A font family name is not a stable rasterizer input

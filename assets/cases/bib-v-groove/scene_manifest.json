@@ -1,0 +1,134 @@
+{
+  "case": "bib-v-groove",
+  "canvas": {
+    "width": 720,
+    "height": 438,
+    "coordinate_system": "native SVG viewBox coordinates"
+  },
+  "polygons": [
+    {
+      "name": "Passivation-continuous-surface",
+      "points": [[31, 132], [201, 20], [242, 28], [552, 74], [552, 82], [382, 194], [31, 140]],
+      "fill": "#639BB5",
+      "stroke": null
+    },
+    {
+      "name": "Groove-continuous-metal",
+      "points": [[31, 132], [201, 20], [242, 28], [242, 81], [314, 33], [354, 39], [354, 42], [182, 154], [145.761, 148], [137, 258], [86, 249], [75.292, 142], [31, 135]],
+      "fill": "#DFA95F",
+      "stroke": null
+    },
+    {
+      "name": "BL-front",
+      "points": [[31, 132], [382, 186], [382, 223], [31, 171]],
+      "fill": "#A9CDDA",
+      "stroke": null
+    },
+    {
+      "name": "AL-front",
+      "points": [[31, 171], [382, 223], [382, 274], [31, 221]],
+      "fill": "#EAD59B",
+      "stroke": null
+    }
+  ],
+  "shared_edges": [
+    {
+      "name": "passivation-to-BL-front",
+      "left": {"a": [31, 132], "b": [382, 194]},
+      "right": {"a": [31, 132], "b": [382, 194]},
+      "tolerance": 0.25
+    },
+    {
+      "name": "BL-to-AL-front",
+      "left": {"a": [31, 171], "b": [382, 223]},
+      "right": {"a": [31, 171], "b": [382, 223]},
+      "tolerance": 0.25
+    },
+    {
+      "name": "groove-bottom-to-substrate",
+      "left": {"a": [86, 249], "b": [137, 258]},
+      "right": {"a": [86, 249], "b": [137, 258]},
+      "tolerance": 0.25
+    }
+  ],
+  "thickness_groups": [
+    {
+      "name": "top-contact-pads",
+      "values": [3.0, 2.5, 2.5],
+      "tolerance": 0.75
+    },
+    {
+      "name": "layer-face-boundaries",
+      "values": [39.0, 39.0, 52.0, 61.0],
+      "tolerance": 22.0
+    }
+  ],
+  "dash_groups": [
+    {
+      "name": "front-contour",
+      "lengths": [7.1, 7.4, 7.0, 7.3, 7.2],
+      "spacing": [5.1, 5.2, 5.0, 5.2],
+      "max_cv": 0.08
+    },
+    {
+      "name": "middle-and-rear-contours",
+      "lengths": [7.3, 7.2, 7.4, 7.1, 7.3, 7.2],
+      "spacing": [5.2, 5.1, 5.2, 5.1, 5.2],
+      "max_cv": 0.08
+    }
+  ],
+  "arrowheads": [
+    {
+      "name": "top-contact",
+      "tip": [333, 188],
+      "left": [325, 195],
+      "right": [341, 195],
+      "min_angle_deg": 70,
+      "max_angle_deg": 110
+    },
+    {
+      "name": "passivation-pointer",
+      "tip": [363, 69],
+      "left": [359, 59],
+      "right": [367, 59],
+      "min_angle_deg": 35,
+      "max_angle_deg": 90
+    }
+  ],
+  "palette_contract": {
+    "groups": {
+      "metal-faces": ["#DFA95F", "#DFA95F", "#DFA95F", "#DFA95F"],
+      "yellow-layer-family": ["#EAD59B", "#EAD59B", "#EAD59B"],
+      "passivation-family": ["#639BB5", "#639BB5"]
+    },
+    "forbidden_structural_strokes": ["#000000", "#222222", "#000"]
+  },
+  "layer_order": {
+    "expected": [
+      "substrate",
+      "bottom-contact",
+      "AL",
+      "BL",
+      "passivation",
+      "groove-metal",
+      "top-contact-pads",
+      "dashed-contours",
+      "electrical-wires",
+      "arrows",
+      "labels"
+    ],
+    "actual": [
+      "substrate",
+      "bottom-contact",
+      "AL",
+      "BL",
+      "passivation",
+      "groove-metal",
+      "top-contact-pads",
+      "dashed-contours",
+      "electrical-wires",
+      "arrows",
+      "labels"
+    ]
+  }
+}

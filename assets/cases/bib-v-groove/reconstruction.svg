@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="876" viewBox="0 0 720 438"><rect width="720" height="438" fill="#FFFFFF"/>
+<polygon id="High purity substrate-front" points="76,283 427,336 427,397 76,344" fill="#BDBDBD" fill-opacity="1.0"/>
+<polygon id="High purity substrate-right" points="427,336 597,224 597,285 427,397" fill="#D5D5D5" fill-opacity="1.0"/>
+<polygon id="Bottom contact-front" points="76,261 427,314 427,336 76,283" fill="#B9C9B0" fill-opacity="1.0"/>
+<polygon id="Bottom contact-right" points="427,314 597,202 597,224 427,336" fill="#CFDCC2" fill-opacity="1.0"/>
+<polygon id="AL-front" points="76,211 427,263 427,314 76,261" fill="#EAD59B" fill-opacity="1.0"/>
+<polygon id="AL-right" points="427,263 597,151 597,202 427,314" fill="#F1E2B8" fill-opacity="1.0"/>
+<polygon id="BL-front" points="76,172 427,226 427,263 76,211" fill="#A9CDDA" fill-opacity="1.0"/>
+<polygon id="BL-right" points="427,226 597,114 597,151 427,263" fill="#C1DDE6" fill-opacity="1.0"/>
+<polygon id="Passivation-continuous-surface" points="76,172 246,60 287,68 597,114 597,122 427,234 76,180" fill="#639BB5" fill-opacity="1.0"/>
+<polygon id="Groove-rear-opening" points="287,40 359,40 359,73 287,121" fill="#FFFFFF" fill-opacity="1.0"/>
+<polygon id="Groove-continuous-metal" points="76,172 246,60 287,68 287,121 359,73 399,79 399,82 227,194 190.761,188 182,298 131,289 120.292,182 76,175" fill="#DFA95F" fill-opacity="1.0"/>
+<polygon id="Top-contact-front-pale-underface" points="356,217 398,224 398,230 356,223" fill="#E9BEC2" fill-opacity="0.42"/>
+<polygon id="Top-contact-front" points="356,214 372,203 410,209 410,212 398,224 356,217" fill="#DFA95F" fill-opacity="1.0"/>
+<polygon id="Top-contact-middle" points="414,171 446,149.91764705882355 492,156.9945701357466 492,159.4945701357466 460,180.57692307692307 414,173.5" fill="#DFA95F" fill-opacity="1.0"/>
+<polygon id="Top-contact-rear" points="510,118 532,103.50588235294117 573,109.81357466063349 573,112.31357466063349 551,126.8076923076923 510,120.5" fill="#DFA95F" fill-opacity="1.0"/>
+<line x1="272.0" y1="197.0" x2="276.32" y2="194.15388248" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="283.68" y1="189.30494152" x2="288.0" y2="186.458824" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="288.0" y1="186.458824" x2="291.24" y2="186.95728554142858" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="296.76" y1="187.80651631571428" x2="303.24" y2="188.8034393985714" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="308.76" y1="189.65267017285714" x2="315.24" y2="190.64959325571428" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="320.76" y1="191.49882403" x2="327.24" y2="192.49574711285715" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="332.76" y1="193.34497788714285" x2="339.24" y2="194.34190096999998" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="344.76" y1="195.1911317442857" x2="351.24" y2="196.18805482714285" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="356.76" y1="197.03728560142858" x2="363.24" y2="198.03420868428572" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="368.76" y1="198.88343945857142" x2="372.0" y2="199.381901" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="372.0" y1="199.381901" x2="367.68" y2="202.22801852" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="360.32" y1="207.07695948" x2="356.0" y2="209.923077" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="394.0" y1="171.461538" x2="390.328" y2="170.89661494799998" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="384.072" y1="169.934153452" x2="376.728" y2="168.80430734799998" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="370.472" y1="167.841845852" x2="363.128" y2="166.71199974799998" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="356.872" y1="165.74953825199998" x2="349.528" y2="164.619692148" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="343.272" y1="163.657230652" x2="335.928" y2="162.527384548" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="329.672" y1="161.56492305199998" x2="326.0" y2="161.0" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="326.0" y1="161.0" x2="328.97" y2="159.043294124" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="334.03" y1="155.709647076" x2="339.97" y2="151.796235324" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="345.03" y1="148.46258827600002" x2="350.97" y2="144.54917652400002" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="356.03" y1="141.215529476" x2="361.97" y2="137.302117724" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="367.03" y1="133.968470676" x2="372.97" y2="130.055058924" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="378.03" y1="126.721411876" x2="381.0" y2="124.764706" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="381.0" y1="124.764706" x2="384.672" y2="125.329629052" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="390.928" y1="126.292090548" x2="398.272" y2="127.421936652" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="404.528" y1="128.384398148" x2="411.872" y2="129.514244252" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="418.128" y1="130.476705748" x2="425.472" y2="131.606551852" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="431.728" y1="132.569013348" x2="439.072" y2="133.698859452" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="445.328" y1="134.661320948" x2="449.0" y2="135.226244" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="449.0" y1="135.226244" x2="446.03" y2="137.182949876" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="440.97" y1="140.516596924" x2="435.03" y2="144.430008676" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="429.97" y1="147.763655724" x2="424.03" y2="151.677067476" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="418.97" y1="155.01071452399998" x2="413.03" y2="158.92412627599998" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="407.97" y1="162.25777332399997" x2="402.03" y2="166.17118507599997" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="396.97" y1="169.504832124" x2="394.0" y2="171.461538" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="418.0" y1="105.0" x2="422.32" y2="102.15388248" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="429.68" y1="97.30494152" x2="434.0" y2="94.45882399999999" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="418.0" y1="105.0" x2="421.465" y2="105.53307693" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="427.36833333333334" y1="106.44128207" x2="434.29833333333335" y2="107.50743593" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="440.20166666666665" y1="108.41564107" x2="447.13166666666666" y2="109.48179493" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="453.03499999999997" y1="110.39000007" x2="459.96500000000003" y2="111.45615393" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="465.86833333333334" y1="112.36435907" x2="472.79833333333335" y2="113.43051293" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="478.70166666666665" y1="114.33871807" x2="485.63166666666666" y2="115.40487193" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="491.53499999999997" y1="116.31307706999999" x2="495.0" y2="116.846154" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="495.0" y1="116.846154" x2="499.32" y2="114.00003648" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="506.68" y1="109.15109552" x2="511.0" y2="106.304978" stroke="#EAD59B" stroke-width="1.25"/>
+<line x1="173" y1="132" x2="173" y2="77" stroke="#222222" stroke-width="1.1666666666666667"/>
+<line x1="173" y1="77" x2="75" y2="59" stroke="#222222" stroke-width="1.1666666666666667"/>
+<line x1="75" y1="59" x2="75" y2="101" stroke="#222222" stroke-width="1.1666666666666667"/>
+<line x1="61" y1="101" x2="89" y2="101" stroke="#222222" stroke-width="1.1666666666666667"/>
+<line x1="66" y1="110" x2="84" y2="110" stroke="#222222" stroke-width="1.1666666666666667"/>
+<line x1="71" y1="118" x2="79" y2="118" stroke="#222222" stroke-width="1.1666666666666667"/>
+<line x1="459" y1="159" x2="459" y2="116" stroke="#222222" stroke-width="1.1666666666666667"/>
+<line x1="459" y1="116" x2="616" y2="140" stroke="#222222" stroke-width="1.1666666666666667"/>
+<line x1="616" y1="140" x2="616" y2="226" stroke="#222222" stroke-width="1.1666666666666667"/>
+<circle cx="616" cy="230" r="4" fill="white" stroke="#222222" stroke-width="1.2"/>
+<text id="Label-passivation" x="367" y="33.0" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="18" fill="#000000">Passivation layer</text>
+<line x1="408" y1="57" x2="408.0" y2="100.0" stroke="#222222" stroke-width="1.8333333333333335"/>
+<polygon id="Passivation pointer-head" points="408,109 404.0,99.0 412.0,99.0" fill="#222222" fill-opacity="1.0"/>
+<text id="Label-negative-contact" x="182" y="131.0" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="18" fill="#000000">Al:V−</text>
+<text id="Label-positive-contact" x="441" y="195.5" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="18" fill="#000000">Al:V+</text>
+<text id="Label-groove-1" x="147.0" y="213.5" dominant-baseline="central" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#000000">V</text>
+<text id="Label-groove-2" x="148.5" y="237.5" dominant-baseline="central" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#000000">groove</text>
+<text id="Label-BL" x="300.0" y="232.5" dominant-baseline="central" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#000000" transform="rotate(8.7 300.0 232.5)">BL</text>
+<text id="Label-AL" x="291.5" y="274.0" dominant-baseline="central" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#000000" transform="rotate(8.7 291.5 274.0)">AL</text>
+<text id="Label-bottom-contact" x="305.5" y="307.0" dominant-baseline="central" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#000000" transform="rotate(8.7 305.5 307.0)">Bottom contact</text>
+<text id="Label-substrate" x="270.5" y="343.0" dominant-baseline="central" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#000000" transform="rotate(8.7 270.5 343.0)">High purity substrate</text>
+<text id="Label-bias" x="619.0" y="252.0" dominant-baseline="central" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#000000">+V</text>
+<text id="Label-top-contact" x="322" y="278.0" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="16" fill="#000000">Top contact</text>
+<polygon id="Top contact solid black arrow" points="374,265 382,265 382,235 386,235 378,228 370,235 374,235" fill="#000000" fill-opacity="1.0"/>
+</svg>

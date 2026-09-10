@@ -1,0 +1,216 @@
+{
+  "passed": true,
+  "failed": [],
+  "checks": [
+    {
+      "name": "canvas",
+      "passed": true,
+      "width": 720,
+      "height": 438
+    },
+    {
+      "name": "polygon:Passivation-continuous-surface",
+      "passed": true,
+      "vertices": 7,
+      "area": 52363.0,
+      "stroke": null
+    },
+    {
+      "name": "polygon:Groove-continuous-metal",
+      "passed": true,
+      "vertices": 13,
+      "area": 25814.928,
+      "stroke": null
+    },
+    {
+      "name": "polygon:BL-front",
+      "passed": true,
+      "vertices": 4,
+      "area": 13338.0,
+      "stroke": null
+    },
+    {
+      "name": "polygon:AL-front",
+      "passed": true,
+      "vertices": 4,
+      "area": 17725.5,
+      "stroke": null
+    },
+    {
+      "name": "shared-edge:passivation-to-BL-front",
+      "passed": true,
+      "endpoint_errors": [
+        0.0,
+        0.0
+      ],
+      "tolerance": 0.25
+    },
+    {
+      "name": "shared-edge:BL-to-AL-front",
+      "passed": true,
+      "endpoint_errors": [
+        0.0,
+        0.0
+      ],
+      "tolerance": 0.25
+    },
+    {
+      "name": "shared-edge:groove-bottom-to-substrate",
+      "passed": true,
+      "endpoint_errors": [
+        0.0,
+        0.0
+      ],
+      "tolerance": 0.25
+    },
+    {
+      "name": "thickness:top-contact-pads",
+      "passed": true,
+      "values": [
+        3.0,
+        2.5,
+        2.5
+      ],
+      "spread": 0.5,
+      "tolerance": 0.75
+    },
+    {
+      "name": "thickness:layer-face-boundaries",
+      "passed": true,
+      "values": [
+        39.0,
+        39.0,
+        52.0,
+        61.0
+      ],
+      "spread": 22.0,
+      "tolerance": 22.0
+    },
+    {
+      "name": "dashes:front-contour",
+      "passed": true,
+      "length_cv": 0.019641855032959673,
+      "spacing_cv": 0.0161786575139288,
+      "max_cv": 0.08,
+      "lengths": [
+        7.1,
+        7.4,
+        7.0,
+        7.3,
+        7.2
+      ],
+      "spacing": [
+        5.1,
+        5.2,
+        5.0,
+        5.2
+      ]
+    },
+    {
+      "name": "dashes:middle-and-rear-contours",
+      "passed": true,
+      "length_cv": 0.01320589114146675,
+      "spacing_cv": 0.009494146289857331,
+      "max_cv": 0.08,
+      "lengths": [
+        7.3,
+        7.2,
+        7.4,
+        7.1,
+        7.3,
+        7.2
+      ],
+      "spacing": [
+        5.2,
+        5.1,
+        5.2,
+        5.1,
+        5.2
+      ]
+    },
+    {
+      "name": "arrowhead:top-contact",
+      "passed": true,
+      "angle_deg": 97.62814966858072,
+      "min_angle_deg": 70.0,
+      "max_angle_deg": 110.0
+    },
+    {
+      "name": "arrowhead:passivation-pointer",
+      "passed": true,
+      "angle_deg": 43.602818972703616,
+      "min_angle_deg": 35.0,
+      "max_angle_deg": 90.0
+    },
+    {
+      "name": "palette:metal-faces",
+      "passed": true,
+      "fills": [
+        "DFA95F",
+        "DFA95F",
+        "DFA95F",
+        "DFA95F"
+      ],
+      "expected": "DFA95F"
+    },
+    {
+      "name": "palette:yellow-layer-family",
+      "passed": true,
+      "fills": [
+        "EAD59B",
+        "EAD59B",
+        "EAD59B"
+      ],
+      "expected": "EAD59B"
+    },
+    {
+      "name": "palette:passivation-family",
+      "passed": true,
+      "fills": [
+        "639BB5",
+        "639BB5"
+      ],
+      "expected": "639BB5"
+    },
+    {
+      "name": "palette:structural-outlines",
+      "passed": true,
+      "forbidden": [
+        "000",
+        "000000",
+        "222222"
+      ],
+      "seen": []
+    },
+    {
+      "name": "layer-order",
+      "passed": true,
+      "expected": [
+        "substrate",
+        "bottom-contact",
+        "AL",
+        "BL",
+        "passivation",
+        "groove-metal",
+        "top-contact-pads",
+        "dashed-contours",
+        "electrical-wires",
+        "arrows",
+        "labels"
+      ],
+      "actual": [
+        "substrate",
+        "bottom-contact",
+        "AL",
+        "BL",
+        "passivation",
+        "groove-metal",
+        "top-contact-pads",
+        "dashed-contours",
+        "electrical-wires",
+        "arrows",
+        "labels"
+      ]
+    }
+  ]
+}

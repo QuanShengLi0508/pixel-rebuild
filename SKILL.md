@@ -16,6 +16,15 @@ Reconstruct a raster reference as editable Python drawing code. Treat the image 
 - Inspect the native source both visually and programmatically before drawing.
 - Continue through implementation, render, comparison, iteration, and verification. Do not stop at analysis or a scaffold.
 
+For editable vector schematics, apply the same evidence rule to geometry rather
+than only to pixels. Keep shared edges, face thicknesses, material colors,
+dash paths, arrowheads, protected label regions, and layer order in a scene
+manifest. Use `scripts/audit_vector_scene.py` before delivery. Structural
+polygons should not inherit black outlines or shadows; use explicit electrical
+strokes only where the reference contains them. If a translucent-looking
+region is actually a stable flat overlap color, record the measured color and
+draw that overlap explicitly.
+
 ## Required workflow
 
 1. Locate the source and existing project files. Check for stale or unrelated renderers before editing.
@@ -32,6 +41,11 @@ Reconstruct a raster reference as editable Python drawing code. Treat the image 
 9. Iterate in this order: geometry, missing or invented objects, layering, flat colors, lines/markers, typography, antialiasing fringes.
 10. Render twice from clean invocations and compare SHA-256 hashes. Confirm the script runs without the reference file.
 
+For a vector/PPTX case, also export the SVG/PPTX from a clean invocation,
+verify that the PPTX contains no raster media, run the scene audit, and render
+the PPTX once for visual inspection. The PPTX is a delivery artifact; it is
+never the only source of truth.
+
 ## Resources
 
 - Read [references/reconstruction-playbook.md](references/reconstruction-playbook.md) for measurement, coordinate mapping, shapes, typography, legends, and convergence.
@@ -41,6 +55,7 @@ Reconstruct a raster reference as editable Python drawing code. Treat the image 
 - Use `scripts/inspect_reference.py` for evidence gathering.
 - Use `scripts/compare_reconstruction.py` for numerical and visual QA.
 - Use `scripts/audit_line_evidence.py` to screen candidate leaders and annotation strokes against grayscale source-pixel evidence. Treat low support as a review signal, not an automatic deletion rule.
+- Use `scripts/audit_vector_scene.py` to check shared edges, thickness groups, dash regularity, arrowhead angles, palette contracts, and layer order in editable vector schematics.
 
 ## Typical commands
 
